@@ -61,6 +61,7 @@ class Grid extends Component {
          if (this.state.gameResult === 'Player 1 Wins!!!' || this.state.gameResult === 'Player 2 Wins!!!') return
          this.setState({
             ...this.state,
+            turn: 1,
             gameOver: true,
             gameResult: 'Tie'
          })
@@ -86,6 +87,7 @@ class Grid extends Component {
             }
             this.setState({
                ...this.state,
+               turn: 1,
                gameOver: true,
                gameResult: result
             })
