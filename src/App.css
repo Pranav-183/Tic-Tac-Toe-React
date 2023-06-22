@@ -10,45 +10,32 @@ body {
 }
 
 .App {
-  text-align: center;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-}
-
-.nav {
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 50px;
-  background: linear-gradient(to right, #222, #555, #eee);
-  color: #555;
-  font-size: 1.2em;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  justify-content: flex-end;
-}
-
-.navEl:last-of-type {
-  margin-right: 20px;
-  cursor: pointer;
 }
 
 .main {
   height: 100%;
   width: 100%;
   background-color: #222;
-  padding: 175px 300px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .grid {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 2px;
-  height: 550px;
-  width: 550px;
-  position: relative;
+  height: 40vw;
+  width: 40vw;
 }
 
 .box {
@@ -57,80 +44,100 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto';
   font-size: 3rem;
   font-weight: bold;
   cursor: default;
+  border-radius: 5px;
 }
 
-.playerLogos {
+.box.filled {
+  animation: fadeIn .15s forwards;
+}
+
+@keyframes fadeIn {
+  0% { color: #777; }
+  100% { color: #fff; }
+}
+
+.line {
   position: absolute;
-  top: 90px;
-  left: 300px;
-  color: blue;
-  font-size: 1.5rem;
+  border-radius: 10px;
+  background-color: #ddd;
+}
+
+@keyframes vertical {
+  0% { height: 0vw; }
+  100% { height: 30vw; }
+}
+
+@keyframes horizontal {
+  0% { width: 0vw; }
+  100% { width: 30vw; }
+}
+
+.top {
+  height: 13vh;
+  width: 40vw;
+  color: #fff;
+  font-size: 3vh;
   cursor: default;
   font-family: cursive;
-  width: 350px;
-  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.playerLogos > .playerLogo {
+.players {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.playerLogo {
   display: flex;
   margin: 0 20px;
 }
 
-.playerLogo > .yourTurn {
-  color: rgb(123, 123, 247);
+.yourTurn {
+  color: #fff;
   margin-left: 5px;
   display: none;
 }
 
-.playerLogo > .yourTurn.show {
+.yourTurn.show {
   display: block;
 }
 
 .result {
-  font-size: 5rem;
-  color: red;
-  position: absolute;
-  top: 230px;
-  left: 10px;
-  background-color: rgba(0,0,0,0.7);
+  color: #222;
+  transition: color .2s ease-in-out;
 }
 
 .result.show {
-  animation: spin 3s;
-}
-
-@keyframes spin {
-  0% {transform: scale(.1) rotate(0);}
-  100% {transform: scale(1) rotate(720deg);}
+  color: #fff;
 }
 
 .reset {
-  position: absolute;
-  top: 110px;
-  left: 650px;
   outline: none;
   border: none;
   border-radius: 5px;
   padding: 10px 15px;
   font-size: 1.1rem;
   background: #d10202;
-  color: #86fc3c;
+  color: #fff;
   cursor: pointer;
   transition: all .2s ease-in;
 }
 
 .reset:hover {
   background: #f84343;
-  color: #58df04;
 }
 
 .reset.disabled {
   background: #d1020283;
-  color: #86fc3c83;
+  color: #888;
   cursor: not-allowed;
 }
 
